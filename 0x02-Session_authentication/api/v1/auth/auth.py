@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """ Authentication module for API
 """
+import os
+import re
 from typing import List, TypeVar
 from flask import request
-import re
 
 
 class Auth:
@@ -45,3 +46,14 @@ class Auth:
         Returns the current user (default None)
         """
         return None
+
+    def session_cookie(self, request=None):
+        """
+        Returns the value of the session cookie from the request
+        """
+        if request is None:
+            return None
+        cookie_name = os.getenv("SESSION_NAME")
+        if cookie_name is None:
+            return None
+        return request.cookies.get(cookie_name)

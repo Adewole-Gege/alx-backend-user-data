@@ -14,6 +14,8 @@ Simple HTTP API for playing with `User` model.
 
 - `app.py`: entry point of the API
 - `views/index.py`: basic endpoints of the API: `/status` and `/stats`
+- `views/users.py`: all users endpoints
+
 
 ## Setup
 
